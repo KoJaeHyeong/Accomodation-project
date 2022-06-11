@@ -1,0 +1,246 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type RentUser {
+  id: String!
+  email: String!
+  name: String!
+  birth: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type RentExplain {
+  id: String!
+  makedUp: String!
+  explain: String!
+}
+
+type RentToknow {
+  id: String!
+  rule: String!
+  health_safty: String!
+  refund_policy: String!
+}
+
+type RentHost {
+  id: String!
+  email: String!
+  contents: String!
+  isAuth: Boolean!
+  total_pre: Int!
+  host_nick: String!
+}
+
+type RentTrans {
+  id: String!
+  lists: String!
+  rent: [Rent!]!
+}
+
+type RentFacility {
+  id: String!
+  lists: String!
+  rent: [Rent!]!
+}
+
+type RentLocation {
+  id: String!
+  lists: String!
+  rent: [Rent!]!
+}
+
+type Rent {
+  id: String!
+  house_name: String!
+  price: Float!
+  star_score: Float!
+  pre_score_clean: Float!
+  pre_score_comu: Float!
+  pre_score_checkin: Float!
+  pre_score_exact: Float!
+  pre_score_location: Float!
+  pre_score_satisfy: Float!
+  rent_pre_number: Float!
+  rent_contents: String!
+  rentExplain: RentExplain!
+  rentToknow: RentToknow!
+  rentHost: RentHost!
+  rentFacility: RentFacility!
+  rentTrans: [RentTrans!]!
+  rentLocation: [RentLocation!]!
+}
+
+type RentCustomer {
+  id: String!
+  email: String!
+  contents: String!
+  rent: Rent!
+}
+
+type RentImage {
+  id: String!
+  mainUrl: String!
+  rent: Rent!
+}
+
+type RentReservation {
+  id: String!
+  imp_uid: String!
+  price: Float!
+  status: POINT_TRANSACTION_STATUS_ENUM!
+  rent: Rent!
+  rentUser: RentUser!
+  createAt: DateTime!
+}
+
+enum POINT_TRANSACTION_STATUS_ENUM {
+  PAYMENT
+  CANCEL
+}
+
+type Query {
+  fetchRents(search: String!): [Rent!]!
+  fetchRent(rentId: String!): Rent!
+  fetchRentWithdeleted(rentId: String!): Rent!
+  fetchRentHosts: [RentHost!]!
+  fetchRentHost(rentHostId: String!): RentHost!
+  fetchRentUsers: [RentUser!]!
+  fetchRentUser(email: String!): RentUser!
+  fetchUser: String!
+  fetchCustomers: [RentCustomer!]!
+  fetchCustomer(rentCustomerId: String!): RentCustomer!
+}
+
+type Mutation {
+  login(email: String!, password: String!): String!
+  logout: String!
+  restoreAccessToken: String!
+  uploadFile(files: [Upload!]!): [String!]!
+  createRentReservation(imp_uid: String!, price: Float!, rentId: String!): RentReservation!
+  cancelRentReservation(imp_uid: String!, rentId: String!): RentReservation!
+  createRent(createRentInput: createRentInput!, createRentScoreInput: createRentScoreInput!): Rent!
+  updateRent(rentId: String!, updateRentInput: updateRentInput!, updateRentScoreInput: updateRentScoreInput!): Rent!
+  deleteRent(rentId: String!): Boolean!
+  restoreOneRent(rentId: String!): Boolean!
+  createRentHost(email: String!, createRentHostInput: createRentHostInput!): RentHost!
+  updateRentHost(rentHostId: String!, updateRentHostInput: updateRentHostInput!): RentHost!
+  deleteRentHost(rentHostId: String!): Boolean!
+  restoreOneRentHost(rentHostId: String!): Boolean!
+  createRentImage(rentId: String!, mainUrl: [String!]!): RentImage!
+  updateRentImage(updateRentImageInput: updateRentImageInput!): RentImage!
+  createRentUser(createUserInput: createRentUserInput!): RentUser!
+  updateRentUser(email: String!, originalPassword: String!, updateRentUserInput: updateRentUserInput!): RentUser!
+  deleteRentUser(email: String!): Boolean!
+  createRentCustomer(email: String!, createRentCustomerInput: createRentCustomerInput!): RentCustomer!
+  updateRentCustomer(updateRentCustomerInput: updateRentCustomerInput!): RentCustomer!
+  deleteRentCustomer(email: String!): Boolean!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+input createRentInput {
+  house_name: String!
+  price: Float!
+  star_score: Float!
+  rent_pre_number: Float!
+  rent_contents: String!
+}
+
+input createRentScoreInput {
+  pre_score_clean: Float!
+  pre_score_comu: Float!
+  pre_score_checkin: Float!
+  pre_score_exact: Float!
+  pre_score_location: Float!
+  pre_score_satisfy: Float!
+  rentHostId: String!
+  rentToknow: RentToknowInput!
+  rentExplain: RentExplainInput!
+  rentFacility: [String!]!
+  rentLocation: [String!]!
+  rentTrans: [String!]!
+}
+
+input RentToknowInput {
+  rule: String!
+  health_safty: String!
+  refund_policy: String!
+}
+
+input RentExplainInput {
+  makedUp: String!
+  explain: String!
+}
+
+input updateRentInput {
+  house_name: String
+  price: Float
+  star_score: Float
+  rent_pre_number: Float
+  rent_contents: String
+}
+
+input updateRentScoreInput {
+  pre_score_clean: Float
+  pre_score_comu: Float
+  pre_score_checkin: Float
+  pre_score_exact: Float
+  pre_score_location: Float
+  pre_score_satisfy: Float
+  rentHostId: String
+  rentToknow: RentToknowInput
+  rentExplain: RentExplainInput
+  rentFacility: [String!]
+  rentLocation: [String!]
+  rentTrans: [String!]
+}
+
+input createRentHostInput {
+  isAuth: Boolean!
+  contents: String!
+  total_pre: Int!
+  host_nick: String!
+}
+
+input updateRentHostInput {
+  isAuth: Boolean
+  contents: String
+  total_pre: Int
+  host_nick: String
+}
+
+input updateRentImageInput {
+  mainUrl: [String!]
+  subUrl: [String!]
+  rentId: String
+}
+
+input createRentUserInput {
+  email: String!
+  password: String!
+  name: String!
+  birth: DateTime!
+}
+
+input updateRentUserInput {
+  email: String
+  password: String
+  name: String
+  birth: DateTime
+}
+
+input createRentCustomerInput {
+  rentId: String!
+  contents: String!
+}
+
+input updateRentCustomerInput {
+  rentId: String
+  contents: String
+}

@@ -70,7 +70,7 @@ export class AuthService {
     }
 
     // 3. 로그인
-    this.setRefreshToken({ user, res }); //authService를 지정 안해도 되는 이유는 자기 자신 안에 있기 때문에, 지정을 해줄 필요가 없다.
+    this.setRefreshToken({ user, res }); //authService를 지정을 안해도 되는 이유는 자기 자신 안에 있기 때문에, 지정을 해줄 필요가 없다.
 
     res.redirect('http://localhost:5500/frontend/login/index.html');
   }

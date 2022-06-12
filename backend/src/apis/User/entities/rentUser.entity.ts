@@ -11,7 +11,7 @@ import { Rent } from 'src/apis/rent/entities/rent.entity';
 @Entity() // 테이블로 만들어줘
 @ObjectType()
 export class RentUser {
-  @PrimaryGeneratedColumn('uuid') // Generated 우리가 따로 안만들어도 알아서 자동으로 만들어 진다.
+  @PrimaryGeneratedColumn('uuid')
   @Field(() => String)
   id: string;
 

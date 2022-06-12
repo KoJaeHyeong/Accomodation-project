@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { RentUser } from '../rentUser/entities/rentUser.entity';
+import { RentUser } from '../User/entities/rentUser.entity';
 import { RentReservation } from './entities/rentReservation.entity';
 import { RentReservationResolver } from './rentReservation.resolver';
 import { RentReservationService } from './rentReservation.service';

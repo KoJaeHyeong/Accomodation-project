@@ -1,6 +1,6 @@
 import { Field, Float, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { Rent } from 'src/apis/rent/entities/rent.entity';
-import { RentUser } from 'src/apis/rentUser/entities/rentUser.entity';
+import { RentUser } from 'src/apis/User/entities/rentUser.entity';
 import {
   Column,
   CreateDateColumn,
@@ -39,7 +39,7 @@ export class RentReservation {
   @Field(() => POINT_TRANSACTION_STATUS_ENUM) // 위에 register로 설정을 해줌.
   status: string;
 
-  @ManyToOne(() => Rent) // 이쪽 좀더 공부해보자! 다대다가 아니라 둘다 manytoone관계
+  @ManyToOne(() => Rent)
   @Field(() => Rent)
   rent: Rent;
 
@@ -47,7 +47,7 @@ export class RentReservation {
   @Field(() => RentUser)
   rentUser: RentUser;
 
-  @CreateDateColumn() // 자동으로 날짜가 기록
+  @CreateDateColumn()
   @Field(() => Date)
   createAt: Date;
 }

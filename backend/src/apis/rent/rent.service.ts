@@ -173,9 +173,4 @@ export class RentService {
     const result = await this.rentRepository.softDelete({ id: rentId });
     return result.affected ? true : false;
   }
-
-  async restoreOne({ rentId }) {
-    const result = await this.rentRepository.restore({ id: rentId });
-    return result.affected ? true : false;
-  }
 }

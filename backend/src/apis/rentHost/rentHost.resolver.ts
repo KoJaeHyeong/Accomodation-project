@@ -57,11 +57,4 @@ export class RentHostResolver {
   ) {
     return this.rentHostService.delete({ rentHostId });
   }
-
-  @Mutation(() => Boolean)
-  restoreOneRentHost(
-    @Args('rentHostId') rentHostId: string, //
-  ) {
-    return this.rentHostService.restoreOne({ rentHostId });
-  }
 }

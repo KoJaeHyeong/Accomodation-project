@@ -4,7 +4,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { Args, Context, Mutation, Resolver } from '@nestjs/graphql';
-import { RentUserService } from '../rentUser/rentUser.service';
+import { RentUserService } from '../User/rentUser.service';
 import { AuthService } from './auth.service';
 import * as bcrypt from 'bcrypt';
 import { CurrentUser, ICurrentUser } from 'src/commons/auth/gql-user.param';

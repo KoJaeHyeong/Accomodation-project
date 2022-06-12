@@ -8,7 +8,7 @@ import { RentCustomerModule } from './apis/rentCustomer/rentCustomer.module';
 import { RentHostModule } from './apis/rentHost/rentHost.module';
 import { RentImageModule } from './apis/rentImage/rentImage.module';
 import { RentReservationModule } from './apis/rentReservation/rentReservation.module';
-import { RentUserModule } from './apis/rentUser/rentUser.module';
+import { RentUserModule } from './apis/User/rentUser.module';
 import { FileModule } from './apis/file/file.module';
 import type { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';

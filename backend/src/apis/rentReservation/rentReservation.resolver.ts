@@ -16,7 +16,7 @@ export class RentReservationResolver {
     private readonly iamportService: IamportService,
   ) {}
 
-  @UseGuards(GqlAuthAccessGuard) // 로그인한 사람만 가능이기 때문에, 가드를 통해서 검증
+  @UseGuards(GqlAuthAccessGuard)
   @Mutation(() => RentReservation)
   async createRentReservation(
     @Args('imp_uid') imp_uid: string,

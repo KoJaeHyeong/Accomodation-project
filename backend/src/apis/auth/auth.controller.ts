@@ -1,8 +1,8 @@
 import { Controller, Get, Req, Res, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { RentUser } from '../rentUser/entities/rentUser.entity';
+import { RentUser } from '../User/entities/rentUser.entity';
 import { Request, Response } from 'express';
-import { RentUserService } from '../rentUser/rentUser.service';
+import { RentUserService } from '../User/rentUser.service';
 import { AuthService } from '../auth/auth.service';
 
 interface IOAuthUser {

@@ -1,6 +1,5 @@
 import { Injectable, Render } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { addAbortSignal } from 'stream';
 import { Repository } from 'typeorm';
 import { Rent } from '../rent/entities/rent.entity';
 import { RentImage } from './entities/rentImage.entity';

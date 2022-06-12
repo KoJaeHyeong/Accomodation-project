@@ -57,8 +57,6 @@ export class RentResolver {
       }
       return result;
     }
-
-    // return this.rentService.findAll();
   }
 
   @Query(() => Rent)
@@ -105,12 +103,5 @@ export class RentResolver {
     @Args('rentId') rentId: string, //
   ) {
     return this.rentService.delete({ rentId });
-  }
-
-  @Mutation(() => Boolean)
-  restoreOneRent(
-    @Args('rentId') rentId: string, //
-  ) {
-    return this.rentService.restoreOne({ rentId });
   }
 }

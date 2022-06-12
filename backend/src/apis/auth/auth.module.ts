@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { RentUser } from '../rentUser/entities/rentUser.entity';
+import { RentUser } from '../User/entities/rentUser.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthResolver } from './auth.resolver';
 import { AuthService } from './auth.service';
-import { RentUserService } from '../rentUser/rentUser.service';
+import { RentUserService } from '../User/rentUser.service';
 import { JwtRefreshStrategy } from 'src/commons/auth/jwt-refresh.strategy';
 import { AuthController } from './auth.controller';
 import { JwtGoogleStrategy } from 'src/commons/auth/jwt-social-google.strategy';

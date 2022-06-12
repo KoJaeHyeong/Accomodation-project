@@ -9,7 +9,7 @@ import {
   POINT_TRANSACTION_STATUS_ENUM,
   RentReservation,
 } from './entities/rentReservation.entity';
-import { RentUser } from '../rentUser/entities/rentUser.entity';
+import { RentUser } from '../User/entities/rentUser.entity';
 
 @Injectable()
 export class RentReservationService {
@@ -73,10 +73,9 @@ export class RentReservationService {
         where: { email: currentUser.email }, // currnetUser에 로그인한 유저의 모든 정보가 담긴다.
       });
 
-      const rentReservation = await this.rentReservationRepository.create({
+      const rentReservation = this.rentReservationRepository.create({
         imp_uid,
         price: -price,
-        // user: currentUser,
         rent: { id: rentId },
         rentUser: { id: ids1.id },
         status: POINT_TRANSACTION_STATUS_ENUM.CANCEL,
@@ -110,7 +109,6 @@ export class RentReservationService {
       const rentReservation = await this.rentReservationRepository.create({
         imp_uid: imp_uid,
         price: price,
-        // user: currentUser,
         rent: { id: rentId },
         rentUser: { id: ids1.id },
         status: POINT_TRANSACTION_STATUS_ENUM.PAYMENT, // 지불한 상태를 저장!

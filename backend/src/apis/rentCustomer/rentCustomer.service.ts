@@ -26,7 +26,7 @@ export class RentCustomerService {
   async create({ currentEmail, email, createRentCustomerInput }) {
     const { rentId, ...contents } = createRentCustomerInput;
     const user = await this.rentCustomerRepository.findOne({
-      where: { email: currentEmail }, // 이미 숙소후기를 등록한 유저 에러 던지기
+      where: { email: currentEmail },
     });
     if (user) throw new ConflictException('이미 숙소후기를 등록하였습니다.');
 
@@ -42,7 +42,6 @@ export class RentCustomerService {
     const review = await this.rentCustomerRepository.findOne({
       where: { rent: rentId },
     });
-    console.log(review, 'BBB');
     const newReview = {
       ...review,
       ...result,

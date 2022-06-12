@@ -17,7 +17,7 @@ export class RentExplain {
   @Field(() => String)
   makedUp: string;
 
-  @Column()
+  @Column({ type: 'longtext' })
   @Field(() => String)
   explain: string;
 

@@ -22,7 +22,5 @@ export class RentTrans {
   @ManyToMany(() => Rent, (rent) => rent.rentTrans)
   @Field(() => [Rent])
   rent: Rent[];
-
-  @DeleteDateColumn()
-  deleted: Date;
+  
 }

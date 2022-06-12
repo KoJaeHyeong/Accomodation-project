@@ -44,7 +44,7 @@ export class RentUserResolver {
     @Args('originalPassword') originalPassword: string,
     @Args('updateRentUserInput') updateRentUserInput: updateRentUserInput,
   ) {
-    const currentEmail = currentUser.email; // 인가 이메일을 변수로 지정
+    const currentEmail = currentUser.email;
     console.log(currentEmail);
     return await this.rentUserService.update({
       currentEmail,
@@ -63,14 +63,11 @@ export class RentUserResolver {
     return this.rentUserService.delete({ email });
   }
 
-  //로그인한 사람 조회하기
-  @UseGuards(GqlAuthAccessGuard) // 로그인 유무를 검증 하는 부분!
+  @UseGuards(GqlAuthAccessGuard)
   @Query(() => String)
   fetchUser(
     @CurrentUser() currentUser: any, //
   ) {
-    console.log('currentUser는 ??', currentUser);
-    console.log('fetchUser 실행완료!!');
     return currentUser.email;
   }
 }

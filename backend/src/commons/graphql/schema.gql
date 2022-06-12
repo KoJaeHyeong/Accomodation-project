@@ -126,11 +126,9 @@ type Mutation {
   createRent(createRentInput: createRentInput!, createRentScoreInput: createRentScoreInput!): Rent!
   updateRent(rentId: String!, updateRentInput: updateRentInput!, updateRentScoreInput: updateRentScoreInput!): Rent!
   deleteRent(rentId: String!): Boolean!
-  restoreOneRent(rentId: String!): Boolean!
   createRentHost(email: String!, createRentHostInput: createRentHostInput!): RentHost!
   updateRentHost(rentHostId: String!, updateRentHostInput: updateRentHostInput!): RentHost!
   deleteRentHost(rentHostId: String!): Boolean!
-  restoreOneRentHost(rentHostId: String!): Boolean!
   createRentImage(rentId: String!, mainUrl: [String!]!): RentImage!
   updateRentImage(updateRentImageInput: updateRentImageInput!): RentImage!
   createRentUser(createUserInput: createRentUserInput!): RentUser!

@@ -71,7 +71,7 @@ export class AuthResolver {
     } catch (error) {
       throw new UnauthorizedException();
     }
-    return '로그아웃됐다 짜샤,,, 서운하네 이제 꺼져';
+    return '정상적으로 로그아웃 되었습니다.';
   }
 
   @UseGuards(GqlAuthRefreshGuard)

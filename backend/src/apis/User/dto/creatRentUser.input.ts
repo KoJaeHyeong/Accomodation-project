@@ -11,6 +11,6 @@ export class createRentUserInput {
   @Field(() => String)
   name: string;
 
-  @Field(() => Date)
-  birth: Date;
+  @Field(() => String, { nullable: true })
+  birth: string;
 }

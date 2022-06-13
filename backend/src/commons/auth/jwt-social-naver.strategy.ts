@@ -18,9 +18,9 @@ export class JwtNaverStrategy extends PassportStrategy(Strategy, 'naver') {
     console.log('3', profile);
     return {
       email: profile.email,
-      password: '1111',
+      password: profile.id, // 소셜로그인 비밀번호 자동 설정
       name: profile.name,
-      birth: '1994-04-15',
+      birth: profile.birth,
     }; // 콘솔에 찍히는 profile을 확인후에 받을 값을 보고 설정해줘야한다
   }
 }

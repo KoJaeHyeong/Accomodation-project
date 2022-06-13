@@ -28,8 +28,8 @@ export class RentUser {
   name: string;
 
   @Column()
-  @Field(() => Date)
-  birth: Date;
+  @Field(() => String, { nullable: true })
+  birth: string;
 
   @DeleteDateColumn()
   deleted: Date;

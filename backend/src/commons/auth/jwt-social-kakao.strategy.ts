@@ -18,10 +18,9 @@ export class JwtKakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
     console.log('3', profile);
     return {
       email: profile._json.kakao_account.email,
-      password: '1234',
+      password: profile.id,
       name: profile.displayName,
-      birth: '1994-04-15',
-      rentId: '0580998c-9be8-4efa-b3b5-936761f46b54',
+      birth: profile._json.kakao_account.birthday,
     };
   }
 }

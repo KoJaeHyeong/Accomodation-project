@@ -12,6 +12,7 @@ import { RentUserModule } from './apis/User/rentUser.module';
 import { FileModule } from './apis/file/file.module';
 import type { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
+import { ConfigModule } from '@nestjs/config';
 // import { AppController } from './app.controller';
 // import { AppService } from './app.service';
 
@@ -49,6 +50,11 @@ import * as redisStore from 'cache-manager-redis-store';
     CacheModule.register<RedisClientOptions>({
       store: redisStore,
       url: 'redis://my-redis:6379',
+      isGlobal: true,
+    }),
+
+    ConfigModule.forRoot({
+      // env환경변수 전역으로 사용하기 위함.
       isGlobal: true,
     }),
   ],

@@ -2,17 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { FileUpload } from 'graphql-upload';
 import { Storage } from '@google-cloud/storage';
 
-interface IFile {
+interface IUpload {
   files: FileUpload[];
 }
 
 @Injectable()
 export class FileService {
-  async upload({ files }: IFile) {
+  async upload({ files }: IUpload) {
     const storage = new Storage({
-      keyFilename: 'gcp-key.json',
-      projectId: 'myproject01-347906',
-    }).bucket('main-project01');
+      // 저장할 스토리지 설정
+      keyFilename: process.env.STORAGE_KEY,
+      projectId: process.env.STORAGE_PROJECT_ID,
+    }).bucket(process.env.STORAGE_BUCKET);
 
     const waitedFiled = await Promise.all(files);
 
@@ -25,9 +26,9 @@ export class FileService {
               .createWriteStream()
               .on(
                 'finish',
-                () => resolve(`main-project01/${el.filename}`), // 트리거 하위폴더 thumb에 저장 하기
+                () => resolve(`${process.env.STORAGE_BUCKET}/${el.filename}`), // 트리거 하위폴더 thumb에 저장 하기
               )
-              .on('error', () => reject()),
+              .on('error', (error) => reject(error)),
           );
         });
       }),

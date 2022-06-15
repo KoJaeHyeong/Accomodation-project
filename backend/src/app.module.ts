@@ -13,8 +13,6 @@ import { FileModule } from './apis/file/file.module';
 import type { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
 import { ConfigModule } from '@nestjs/config';
-// import { AppController } from './app.controller';
-// import { AppService } from './app.service';
 
 @Module({
   // graphQl에게 얘는 모듈로 쓸거야 라고 말한다.// @는 데코레이터(함수)
@@ -39,7 +37,7 @@ import { ConfigModule } from '@nestjs/config';
       //mysql과 연결해주 위해서 TypeOrmModule의 옵션을 설정!
       type: 'mysql',
       // host: 'my-database', local
-      host: '10.33.176.4', // dev
+      host: '34.64.201.217', // dev
       port: 3306,
       username: 'root',
       password: 'root',

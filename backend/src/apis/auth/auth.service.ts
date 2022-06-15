@@ -36,7 +36,6 @@ export class AuthService {
 
     if (!user) {
       const createUser = new createRentUserInput();
-      console.log(createUser);
 
       user = await this.rentUserService.create({
         createRentUserInput: req.user,
@@ -58,7 +57,6 @@ export class AuthService {
 
     if (!user) {
       const createUser = new createRentUserInput();
-      console.log(createUser);
 
       user = await this.rentUserService.create({
         // 위에 유저에서 유저가 없다면, 값을 넣어줘야 하기 때문에 user = 로 설정 해줌.

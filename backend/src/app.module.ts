@@ -38,7 +38,8 @@ import { ConfigModule } from '@nestjs/config';
     TypeOrmModule.forRoot({
       //mysql과 연결해주 위해서 TypeOrmModule의 옵션을 설정!
       type: 'mysql',
-      host: 'my-database',
+      // host: 'my-database', local
+      host: '10.33.176.4', // dev
       port: 3306,
       username: 'root',
       password: 'root',

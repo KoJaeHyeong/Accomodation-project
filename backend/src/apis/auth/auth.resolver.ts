@@ -59,9 +59,6 @@ export class AuthResolver {
     try {
       const accessResult = jwt.verify(access, process.env.ACCESS_TOKEN_KEY);
       const refreshResult = jwt.verify(refresh, process.env.REFRESH_TOKEN_KEY);
-      console.log(accessResult, '==========');
-      console.log(refreshResult, '==========11'); // ['']
-      console.log(accessResult['exp']); // 객체의 값 뽑아오기.
       await this.cacheManager.set(`accessToken:${access}`, access, {
         ttl: accessResult['exp'] - accessResult['iat'],
       });

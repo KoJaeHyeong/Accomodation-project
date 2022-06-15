@@ -13,9 +13,6 @@ export class JwtNaverStrategy extends PassportStrategy(Strategy, 'naver') {
   }
 
   validate(accessToken: string, refreshToken: string, profile: any) {
-    console.log('1', accessToken);
-    console.log('2', refreshToken);
-    console.log('3', profile);
     return {
       email: profile.email,
       password: profile.id, // 소셜로그인 비밀번호 자동 설정

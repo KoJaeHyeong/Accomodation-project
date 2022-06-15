@@ -15,7 +15,6 @@ export class IamportService {
         imp_key: process.env.IMP_KEY,
         imp_secret: process.env.IMP_SECRET,
       });
-      console.log(result.data.response.access_token, 'AAAA');
       return result.data.response.access_token;
     } catch (error) {
       throw new HttpException( // 플레이 그라운드는 정상인것처럼 보이니까, 프론트엔드에 에러메시지를 보내기 위함.
@@ -33,15 +32,12 @@ export class IamportService {
           headers: { Authorization: token },
         },
       );
-      console.log(result, 'BBBB');
       if (result.data.response.status !== 'paid')
         // 아임포트에서 결제 정보를 불러오지 못하면, 사용하게 될 로직!
         throw new ConflictException('결제 내역이 존재하지 않습니다.');
 
       if (result.data.response.amount !== price)
         throw new UnprocessableEntityException('결제 금액이 잘못되었습니다.');
-
-      console.log(result.data.response.amount);
     } catch (error) {
       if (error?.response?.data?.message) {
         // 물음표를 붙여줘야 한다.

@@ -41,7 +41,7 @@ import { ConfigModule } from '@nestjs/config';
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'main-project01', // prod
+      database: 'myproject00', // prod
       entities: [__dirname + '/apis/**/*.entity.*'], // __dirname + '/apis/**/*.entity.*' entity라는 이름이 들어간 파일 모두를 연결해줘!!
       synchronize: true,
       logging: true,

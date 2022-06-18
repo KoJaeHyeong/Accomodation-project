@@ -2,29 +2,31 @@ version: '3.7'
 
 services:
   my-backend:
+    image: asia.gcr.io/main-project-353204/my_backend:1.0.2
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./src:/myfolder/src
+    # volumes:
+    #   - ./src:/myfolder/src
     env_file:
       - ./.env.prod
     ports:
       - 3000:3000
 
-  my-database:
-    platform: linux/x86_64
-    image: mysql:latest
-    environment:
-      MYSQL_DATABASE: 'myproject00'
-      MYSQL_ROOT_PASSWORD: 'root'
-    ports:
-      - 3306:3306
+  # my-database:
+  #   platform: linux/x86_64
+  #   image: mysql:latest
+  #   environment:
+  #     MYSQL_DATABASE: 'myproject00'
+  #     MYSQL_ROOT_PASSWORD: 'root'
+  #   ports:
+  #     - 3306:3306
 
-  my-redis:
-    image: redis:latest
-    ports:
-      - 6379:6379
+  # my-redis:
+  #   image: redis:latest
+  #   ports:
+  #     - 6379:6379
 
   # elasticsearch:
   #   image: elasticsearch:7.17.0

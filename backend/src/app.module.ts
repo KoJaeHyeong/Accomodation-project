@@ -37,20 +37,20 @@ import { ConfigModule } from '@nestjs/config';
       //mysql과 연결해주 위해서 TypeOrmModule의 옵션을 설정!
       type: 'mysql',
       // host: 'my-database', local
-      host: '10.33.176.4', // dev
+      host: '10.114.128.181', // prod
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'myproject00',
+      database: 'main-project01', // prod
       entities: [__dirname + '/apis/**/*.entity.*'], // __dirname + '/apis/**/*.entity.*' entity라는 이름이 들어간 파일 모두를 연결해줘!!
       synchronize: true,
       logging: true,
     }),
-    CacheModule.register<RedisClientOptions>({
-      store: redisStore,
-      url: 'redis://my-redis:6379',
-      isGlobal: true,
-    }),
+    // CacheModule.register<RedisClientOptions>({
+    //   store: redisStore,
+    //   url: 'redis://my-redis:6379',
+    //   isGlobal: true,
+    // }),
 
     ConfigModule.forRoot({
       // env환경변수 전역으로 사용하기 위함.

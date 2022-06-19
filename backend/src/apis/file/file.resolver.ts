@@ -10,7 +10,7 @@ export class FileResolver {
     private readonly fileservice: FileService, //
   ) {}
 
-  @UseGuards(GqlAuthAccessGuard)
+  // @UseGuards(GqlAuthAccessGuard)
   @Mutation(() => [String])
   uploadFile(
     @Args({ name: 'files', type: () => [GraphQLUpload] }) files: FileUpload[], // 파일정보나 업로드를 하기가 힘듬(graphql 단점)

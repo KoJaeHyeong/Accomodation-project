@@ -11,7 +11,7 @@ export class FileService {
   async upload({ files }: IUpload) {
     const storage = new Storage({
       // 저장할 스토리지 설정
-      keyFilename: process.env.STORAGE_KEY,
+      keyFilename: '/my-secret/gcp-key.json', // GCP secret key 등록
       projectId: process.env.STORAGE_PROJECT_ID,
     }).bucket(process.env.STORAGE_BUCKET);
 

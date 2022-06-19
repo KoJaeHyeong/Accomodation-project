@@ -12,12 +12,11 @@ steps:
       - push
 
   - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      [
+    args: [
         'set',
         'image',
-        'deployment/main-project',
-        'my-backend-sha256-1=asia.gcr.io/main-project-353204/my_backend:1.1.5',
+        'deployment/mainProject', # /다음은 트리거명
+        'my-backend-sha256-1=asia.gcr.io/main-project-353204/my_backend:1.1.6',
       ]
     env:
       - CLOUDSDK_COMPUTE_ZONE=asia-northeast3

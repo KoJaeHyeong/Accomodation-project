@@ -13,6 +13,8 @@ import { FileModule } from './apis/file/file.module';
 import type { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
 import { ConfigModule } from '@nestjs/config';
+import { AppController } from './apis/auth/app.controller';
+import { AppService } from './apis/auth/app.service';
 
 @Module({
   // graphQl에게 얘는 모듈로 쓸거야 라고 말한다.// @는 데코레이터(함수)
@@ -58,7 +60,7 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
   ],
-  // controllers: [AppController],
-  // providers: [AppService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

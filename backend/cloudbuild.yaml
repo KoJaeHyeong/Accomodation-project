@@ -17,7 +17,7 @@ steps:
         'set',
         'image',
         'deployment/main-project',
-        'my-backend-sha256-1=asia.gcr.io/main-project-353204/my_backend:1.1.4',
+        'my-backend-sha256-1=asia.gcr.io/main-project-353204/my_backend:1.1.5',
       ]
     env:
       - CLOUDSDK_COMPUTE_ZONE=asia-northeast3
